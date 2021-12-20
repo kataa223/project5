@@ -2,6 +2,10 @@ import eel
 import desktop
 import pos_system
 
+ITEM_CODE = 0
+ITEM_NAME = 1
+ITEM_PRICE = 2
+
 app_name="html"
 end_point="index.html"
 size=(700,600)
@@ -14,7 +18,7 @@ with open("item_master.csv", "r", encoding="utf-8") as f:
 item_master=[]  
 for item_line in item_lines:
     item = item_line.split(",")
-    item_master.append(pos_system.Item(item[0], item[1], item[2]))
+    item_master.append(pos_system.Item(item[ITEM_CODE], item[ITEM_NAME], item[ITEM_PRICE]))
 
 # オーダーをインスタンス化
 order = pos_system.Order(item_master)
@@ -26,7 +30,7 @@ def regist_item_run(item_code, item_number):
     order.set_item_number(item_number)                      # 個数を追加
     order.set_item_display_list(item_code, item_number)     # 表示用の商品リストを設定
     order.set_items_amount(item_code, item_number)          # 合計金額を設定
-    return order.get_item_display_list()                    # 表示用の良品リストを設定
+    return order.get_item_display_list()                    # 表示用の良品リストを取得
 
 # 現時点での合計金額を取得
 @ eel.expose
