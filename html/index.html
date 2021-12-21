@@ -43,8 +43,8 @@
     <script>
         /* オーダー登録 */
         function regist_item(){
-            var item_code = document.getElementById("item_code");
-            var item_number = document.getElementById("item_number");
+            let item_code = document.getElementById("item_code");
+            let item_number = document.getElementById("item_number");
 
             if (item_code.value == "" || item_number.value == "") {
                 alert("商品コード・個数を入力してください。");
@@ -63,7 +63,7 @@
 
         /* 会計 */
         function calc_total() {
-            var money = document.getElementById("money");
+            let money = document.getElementById("money");
             if (money.value == "") {
                 alert("お預かり金額を入力してください。");
             }else {
